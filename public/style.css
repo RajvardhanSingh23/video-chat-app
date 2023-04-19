@@ -19,6 +19,10 @@
   display: flex;
 }
 
+.background_red{
+  background-color: red;
+}
+
 .options {
   padding: 1rem;
   display: flex;
