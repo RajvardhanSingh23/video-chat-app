@@ -38,6 +38,14 @@ app.post('/send-mail',(req,res)=>{
         subject:'Join video chat now...'
         html:`<p> Hi,come join me for video chat here-${url} </p>`
     }
+    transporter.sendMail(mailData,(error,info)=>{
+    if(error){
+        return console.log(error)
+        }
+    res.status(200).send({message:'invitation sent',message_id:info.messageId})
+    }
+)
+
     
 })
 app.get("/", (req, res) => {
