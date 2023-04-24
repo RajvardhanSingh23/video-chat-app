@@ -19,6 +19,27 @@ const peerServer = ExpressPeerServer(server, {
 
 app.use("/peerjs", peerServer);
 
+const nodeMailer = require('nodemailer')
+const transporter = nodeMailer.createTransport({
+    port : 587,
+    host : 'smtp.gmail.com',
+    auth : {
+        user:'rajvardhansingh523@gamil.com'
+        pass : 'dcfwvwteuagvmxfs'
+},
+    secure:true 
+})
+app.post('/send-mail',(req,res)=>{
+    const to = req.body.to;
+    const url = req.body.url;
+    const mailData= {
+        from:'rajvardhansingh523@gmail.com',
+        to:to,
+        subject:'Join video chat now...'
+        html:`<p> Hi,come join me for video chat here-${url} </p>`
+    }
+    
+})
 app.get("/", (req, res) => {
     res.redirect(`/${uuidv4()}`);
 });
