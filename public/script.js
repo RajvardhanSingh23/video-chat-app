@@ -124,6 +124,8 @@ $(function () {
             },
             error: function (result) {
                 console.log(result.responseJSON)
+                alert('invite not sent')
+
             }
         })
     })
